@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mujeres en Afganistán · Infografía interactiva</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@400;600;800&display=swap">
+<style>
+:root{--page:#ece6f3;--ink:#2a1342;--pur:#4a1a6b;--pur2:#8a4fc0;--lil:#d9c0f2;--pink:#f26aa8;--blue:#2b6fd1;--navy:#26408b;--gold:#f2a93b;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--page:#15101c}}
+:root[data-theme="dark"]{--page:#15101c}
+html{scroll-behavior:smooth;scroll-padding-top:calc(54px + env(safe-area-inset-top,0px))}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);font-family:Inter,system-ui,sans-serif;color:var(--ink)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--pur);z-index:30}
+.serif{font-family:'Playfair Display',Georgia,serif}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--pur);display:flex;justify-content:center;gap:4px;padding:8px 6px 10px;flex-wrap:wrap}
+nav a{color:#e9d9fa;font-size:12px;font-weight:600;text-decoration:none;padding:5px 10px;border-radius:99px;transition:.25s}
+nav a.on,nav a:hover{background:var(--pink);color:#fff}
+#bar{position:absolute;left:0;bottom:0;height:3px;width:0;background:var(--gold)}
+main{max-width:720px;margin:auto;background:#fff;box-shadow:0 0 40px #0003}
+section{padding:34px 24px}
+h2{font-family:'Playfair Display',Georgia,serif;font-size:28px;margin:0 0 6px;font-weight:800}
+.hint{font-size:12px;color:#6a5a7c;margin:0 0 16px;display:flex;gap:6px;align-items:center}
+.hint:before{content:"☝";font-size:14px}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s,transform .7s}
+.rv.in{opacity:1;transform:none}
+/* hero */
+#top{background:linear-gradient(160deg,#5b1f82,#3a1257);color:#fff;display:grid;grid-template-columns:1.3fr 1fr;gap:12px;align-items:center;padding:40px 24px}
+@media(max-width:560px){#top{grid-template-columns:1fr}}
+.kick{font-size:11px;letter-spacing:.18em;font-weight:800;color:var(--lil)}
+#top h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(40px,10vw,64px);line-height:1;margin:10px 0 14px;font-weight:800}
+#top p{margin:0 0 18px;font-size:15px;color:#efe2fb;max-width:380px}
+.cta{background:var(--pink);color:#fff;border:0;border-radius:99px;padding:10px 20px;font:700 14px Inter,sans-serif;cursor:pointer;animation:pulse 2.2s infinite}
+@keyframes pulse{50%{transform:scale(1.06)}}
+.win{cursor:pointer;width:100%;max-width:230px;margin:auto}
+.sash{transform-origin:left center;transition:transform 1s cubic-bezier(.3,.7,.2,1);transform:perspective(500px) rotateY(-12deg)}
+.win.open .sash{transform:perspective(500px) rotateY(-62deg)}
+/* big */
+#big{background:var(--lil);display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+#big .n{font-family:'Playfair Display',Georgia,serif;font-weight:800;font-size:clamp(46px,12vw,72px);color:var(--pur);line-height:1}
+#big p{margin:6px 0 0;font-size:14px}
+.lock{cursor:pointer;margin-left:auto}
+.lock .sh{transition:transform .5s;transform-origin:30px 22px}
+.lock.un .sh{transform:translateY(-7px) rotate(-35deg)}
+#lockTip{font-size:11px;color:var(--pur);font-weight:600;min-height:14px}
+/* timeline */
+.tl{position:relative;display:flex;justify-content:space-between;padding-top:6px}
+.tl:before{content:"";position:absolute;top:34px;left:6%;right:6%;height:3px;background:#d8c9e8}
+.tl i{position:absolute;top:34px;left:6%;height:3px;width:0;background:var(--pink);transition:width 1.6s .3s}
+.tl.in i{width:88%}
+.st{position:relative;flex:1;text-align:center;background:none;border:0;cursor:pointer;font-family:inherit;color:var(--ink);padding:0 2px}
+.st .c{width:56px;height:56px;border-radius:50%;margin:0 auto 8px;background:var(--pur);color:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;transition:.3s;border:3px solid #fff;box-shadow:0 0 0 2px var(--pur)}
+.st:hover .c,.st.on .c{background:var(--pink);box-shadow:0 0 0 2px var(--pink);transform:scale(1.14)}
+.st b{display:block;font-size:12px}.st span{font-size:11px;color:#5d4c70;display:block;line-height:1.3}
+#det{margin-top:16px;background:#f4ecfb;border-left:5px solid var(--pink);border-radius:8px;padding:14px 16px;font-size:14px;min-height:72px;transition:opacity .3s}
+#det b{font-family:'Playfair Display',Georgia,serif;font-size:18px;display:block;margin-bottom:4px}
+/* cards */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;align-items:start}
+@media(max-width:560px){.cards{grid-template-columns:1fr}}
+.card{border:0;border-radius:14px;color:#fff;text-align:left;padding:18px 16px;cursor:pointer;font-family:inherit;transition:transform .3s}
+.card:hover{transform:translateY(-4px)}
+.card h3{margin:0 0 6px;font-size:16px;font-family:'Playfair Display',Georgia,serif}
+.card .big{font-size:34px;font-weight:800;font-family:'Playfair Display',Georgia,serif;line-height:1}
+.card p{font-size:13px;margin:6px 0 0;line-height:1.4}
+.more{max-height:0;overflow:hidden;transition:max-height .5s;font-size:12.5px;line-height:1.45}
+.card.open .more{max-height:200px;margin-top:10px;padding-top:10px;border-top:1px solid #fff6}
+.card .pl{float:right;font-size:20px;transition:.3s}.card.open .pl{transform:rotate(45deg)}
+/* bars */
+.row{margin:14px 0}
+.row small{display:block;font-size:12px;margin-bottom:4px;font-weight:600}
+.trk{background:#eee6f5;border-radius:4px;height:30px}
+.fill{height:100%;width:0;border-radius:4px;display:flex;align-items:center;padding-left:10px;color:#fff;font-weight:800;font-size:13px;white-space:nowrap;transition:width 1.4s cubic-bezier(.2,.8,.2,1);cursor:help}
+.in .fill{width:var(--w)}
+.note{font-size:11px;color:#6a5a7c}
+/* 92 */
+#pct{background:linear-gradient(160deg,#6a2a96,#3a1257);color:#fff;display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center}
+@media(max-width:560px){#pct{grid-template-columns:1fr}}
+#pct .n{font-family:'Playfair Display',Georgia,serif;font-size:74px;font-weight:800;color:var(--gold);line-height:1}
+.ppl{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.ppl svg{width:100%;fill:#7d5a9c;transform:scale(.5);opacity:0;transition:.5s}
+.in .ppl svg{opacity:1;transform:none;fill:var(--gold);transition-delay:calc(var(--i)*120ms + .4s)}
+.in .ppl svg.no{fill:#7d5a9c}
+/* close */
+#end{text-align:center;background:#f4ecfb}
+#end h2{font-size:30px;color:var(--pur)}
+.door{width:120px;height:170px;margin:16px auto;position:relative;cursor:pointer;background:radial-gradient(#fff7c9,#f9d86a);border:4px solid var(--pur);perspective:600px}
+.leaf{position:absolute;inset:0;background:var(--pur2);transform-origin:left;transition:transform 1.2s}
+.leaf:after{content:"";position:absolute;right:10px;top:50%;width:8px;height:8px;border-radius:50%;background:var(--gold)}
+.door.open .leaf{transform:rotateY(-95deg)}
+footer{font-size:11px;padding:16px 24px 26px;text-align:center;color:#6a5a7c}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.rv{opacity:1;transform:none}.fill{width:var(--w)}.ppl svg{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<nav aria-label="Secciones"><a href="#top">Inicio</a><a href="#big">Cifra</a><a href="#tl">Línea de tiempo</a><a href="#fr">Frentes</a><a href="#eco">Costo</a><a href="#pct">Apoyo</a><div id="bar"></div></nav>
+<main>
+
+<section id="top">
+<div class="rv"><div class="kick">CINCO AÑOS DESPUÉS · 2021–2026</div>
+<h1>Mujeres en Afganistán</h1>
+<p>Cómo se han ido cerrando la educación, el trabajo y el espacio público.</p>
+<button class="cta" onclick="document.getElementById('big').scrollIntoView()">Explorar ↓</button></div>
+<div class="win rv" id="win" title="Toca para abrir la ventana" onclick="this.classList.toggle('open')">
+<svg viewBox="0 0 200 250"><rect x="20" y="10" width="160" height="230" rx="6" fill="#f6edff"/>
+<rect x="32" y="22" width="136" height="206" fill="#b9d6e6"/><path d="M32 190l40-50 30 30 35-45 31 40v83H32z" fill="#7ea6a0"/><circle cx="130" cy="60" r="16" fill="#fff3b0"/>
+<g class="sash"><rect x="32" y="22" width="136" height="206" fill="#f6edff" stroke="#4a1a6b" stroke-width="4" opacity=".93"/><path d="M100 22v206M32 125h136" stroke="#4a1a6b" stroke-width="3"/></g></svg>
+<div style="font-size:11px;text-align:center;color:#d9c0f2">Toca la ventana</div></div>
+</section>
+
+<section id="big" class="rv">
+<div style="flex:1;min-width:200px"><div class="n" data-count="2.4">2,4 millones</div>
+<p><b>de niñas excluidas de la secundaria desde 2021</b> (UNESCO; UNICEF eleva la cifra a más de 2,6 millones).</p>
+<p>Afganistán es el único país que prohíbe formalmente la educación secundaria y universitaria a niñas y mujeres.</p></div>
+<div class="lock" id="lock" onclick="toggleLock()" role="button" aria-label="Candado"><svg viewBox="0 0 60 70" width="70"><g class="sh"><path d="M16 30V20a14 14 0 0128 0v10" fill="none" stroke="#4a1a6b" stroke-width="6"/></g><rect x="8" y="30" width="44" height="34" rx="6" fill="#4a1a6b"/><circle cx="30" cy="45" r="5" fill="#d9c0f2"/></svg><div id="lockTip">Toca el candado</div></div>
+</section>
+
+<section id="tl" class="rv">
+<h2>Un cierre progresivo</h2><p class="hint">Toca cada hito para ver el detalle</p>
+<div class="tl" id="tlw"><i></i>
+<button class="st on" data-k="0"><div class="c">⚑</div><b>Ago 2021</b><span>Los talibanes retoman el poder</span></button>
+<button class="st" data-k="1"><div class="c">✎</div><b>Sep 2021</b><span>Niñas fuera de la escuela después del 6.º grado</span></button>
+<button class="st" data-k="2"><div class="c">🎓</div><b>Dic 2022</b><span>Prohibición de la universidad</span></button>
+<button class="st" data-k="3"><div class="c">💼</div><b>2024–2025</b><span>Restricciones al trabajo en ONG</span></button>
+<button class="st" data-k="4"><div class="c">§</div><b>2026</b><span>Nuevos decretos</span></button>
+</div>
+<div id="det"></div>
+</section>
+
+<section id="fr" style="background:#f7f1fc" class="rv">
+<h2>Tres frentes de restricción</h2><p class="hint">Toca una tarjeta para ampliar</p>
+<div class="cards">
+<button class="card" style="background:var(--pur2)"><span class="pl">+</span><h3>Educación</h3><div class="big">~1 M</div><p>de niñas cursaban secundaria en 2021, antes de la prohibición.</p><div class="more">UNESCO: el acceso era muy limitado en 2001 y había avanzado de forma notable hasta 2021. ONU Mujeres proyecta que las prohibiciones aumentarán el matrimonio infantil un 25 % y la maternidad adolescente un 45 %.</div></button>
+<button class="card" style="background:#a67fd6"><span class="pl">+</span><h3>Vida pública</h3><div class="big">+50 %</div><p>de las mujeres rara vez sale de casa (ONU Mujeres, 2026).</p><div class="more">ONU Mujeres advierte que las mujeres son cada vez más desiguales ante la ley tras los decretos de 2026, y que la crisis corre el riesgo de ser olvidada.</div></button>
+<button class="card" style="background:var(--pink)"><span class="pl">+</span><h3>Ayuda humanitaria</h3><div class="big">10,7 M</div><p>de mujeres y niñas necesitan asistencia en 2026.</p><div class="more">Cerca de tres cuartas partes de las organizaciones lideradas por mujeres encuestadas sufrieron recortes de financiación en 2025.</div></button>
+</div></section>
+
+<section id="eco" class="rv">
+<h2>El costo económico</h2><p class="hint">Pasa el cursor o toca una barra</p>
+<div class="row"><small>Pérdida acumulada 2024–2026 (ONU Mujeres)</small><div class="trk"><div class="fill" style="--w:100%;background:var(--blue)" data-t="Equivale al 5,8 % del PIB de Afganistán">US$ 920 millones</div></div></div>
+<div class="row"><small>Pérdida anual (UNICEF)</small><div class="trk"><div class="fill" style="--w:30%;background:var(--navy)" data-t="Producción económica perdida cada año por las restricciones">US$ 84 millones</div></div></div>
+<p class="note" id="tip">Las dos cifras provienen de estudios con metodologías distintas; no son directamente comparables.</p>
+</section>
+
+<section id="pct" class="rv">
+<div><div class="n" data-count="92">92 %</div><p class="serif" style="font-size:18px;margin:8px 0 4px">de los afganos apoya la educación secundaria de las niñas</p><small>ONU Mujeres, 2025</small></div>
+<div class="ppl" id="ppl"></div>
+</section>
+
+<section id="end" class="rv">
+<h2>Una generación está quedando atrás</h2>
+<div class="door" id="door" onclick="this.classList.toggle('open')"><div class="leaf"></div></div>
+<p style="font-size:14px;color:var(--pur);font-weight:600;margin:0">Llamado de la ONU a restablecer el derecho a aprender.<br><span style="font-weight:400;font-size:12px">Toca la puerta</span></p>
+</section>
+<footer>Fuentes: UNESCO, UNICEF, ONU Mujeres (2025–2026).</footer>
+</main>
+
+<script>
+var D=[["Ago 2021","Los talibanes retoman el poder. Hoy viven en el país unos 21 millones de mujeres (ONU Mujeres)."],
+["Sep 2021","Las niñas quedan excluidas de la educación formal más allá del 6.º grado."],
+["Dic 2022","Se prohíbe a las mujeres asistir a la universidad. Afganistán es el único país que lo hace."],
+["2024–2025","En zonas donde se aplica la restricción al trabajo en ONG, el 97 % de las mujeres encuestadas dice que afecta negativamente su vida diaria."],
+["2026","Nuevos decretos profundizan la desigualdad ante la ley; la ONU habla de una crisis que corre riesgo de olvidarse."]];
+var det=document.getElementById('det');
+function show(k){det.style.opacity=0;setTimeout(function(){det.innerHTML='<b>'+D[k][0]+'</b>'+D[k][1];det.style.opacity=1},150);
+document.querySelectorAll('.st').forEach(function(s){s.classList.toggle('on',s.dataset.k==k)})}
+document.querySelectorAll('.st').forEach(function(s){s.onclick=function(){show(s.dataset.k)}});show(0);
+document.querySelectorAll('.card').forEach(function(c){c.onclick=function(){c.classList.toggle('open')}});
+var lk=document.getElementById('lock'),lt=document.getElementById('lockTip');
+function toggleLock(){lk.classList.toggle('un');lt.textContent=lk.classList.contains('un')?'Abrirlo es posible: restablecer el derecho a aprender':'Cerrado: sin acceso a secundaria ni universidad'}
+document.querySelectorAll('.fill').forEach(function(f){f.onclick=f.onmouseenter=function(){document.getElementById('tip').textContent=f.dataset.t}});
+var p=document.getElementById('ppl'),h='';
+for(var i=0;i<10;i++)h+='<svg viewBox="0 0 30 50" style="--i:'+i+'" class="'+(i>8?'no':'')+'"><circle cx="15" cy="9" r="7"/><path d="M5 50V26a10 10 0 0110-10 10 10 0 0110 10v24z"/></svg>';
+p.innerHTML=h;
+function count(el){var t=parseFloat(el.dataset.count),dec=t%1?1:0,s=performance.now();
+(function f(n){var k=Math.min((n-s)/1600,1),v=t*(1-Math.pow(1-k,3));
+el.textContent=(dec?v.toFixed(1).replace('.',',')+' millones':Math.round(v)+' %');if(k<1)requestAnimationFrame(f)})(s)}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');
+e.target.querySelectorAll('[data-count]').forEach(count);var t=e.target.querySelector('.tl');if(t)t.classList.add('in');io.unobserve(e.target)}})},{threshold:.25});
+document.querySelectorAll('.rv').forEach(function(x){io.observe(x)});
+var links=document.querySelectorAll('nav a'),secs=['top','big','tl','fr','eco','pct'].map(function(i){return document.getElementById(i)});
+addEventListener('scroll',function(){var h=document.documentElement,y=h.scrollTop;
+document.getElementById('bar').style.width=(y/(h.scrollHeight-h.clientHeight)*100)+'%';
+var a=0;secs.forEach(function(s,i){if(s.offsetTop-120<=y)a=i});links.forEach(function(l,i){l.classList.toggle('on',i==a)})},{passive:true});
+</script>
+</body>
+</html>
